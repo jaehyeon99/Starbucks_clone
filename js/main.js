@@ -31,3 +31,52 @@ window.addEventListener('scroll', _.throttle(function () {
         });
     }
 }, 300));
+
+const fadeEls = document.querySelectorAll('.visual .fade-in');
+fadeEls.forEach(function (fadeEl, index) {
+    gsap.to(fadeEl, 1, {
+        delay: (index + 1) * 0.5,
+        opacity: 1
+    });
+});
+
+new Swiper('.notice-line .swiper-container', {
+    direction: 'vertical',
+    autoplay: true,
+    loop: true
+});
+new Swiper('.promotion .swiper-container', {
+    slidesPerView: 3,
+    spaceBetween: 10,
+    centeredSlides: true,
+    loop: true,
+    autoplay: {
+        delay: 5000
+    },
+    pagination: {
+        el: '.promotion .swiper-pagination', //페이지 번호 
+        clickable: true //페이지 번호 클릭 제어 기능
+    },
+    navigation: {
+        prevEl: ".promotion .swiper-prev",
+        nextEl: ".promotion .swiper-next"
+    }
+});
+
+const promotionEl = document.querySelector('.promotion')
+// 슬라이드 영역를 토글하는 버튼 검색!
+const promotionToggleBtn = document.querySelector('.toggle-promotion')
+// 슬라이드 영역 숨김 여부 기본값!
+let isHidePromotion = false
+// 토글 버튼을 클릭하면,
+promotionToggleBtn.addEventListener('click', function () {
+    // 슬라이드 영역 숨김 여부를 반댓값으로 할당!
+    isHidePromotion = !isHidePromotion
+    // 요소를 숨겨야 하면,
+    if (isHidePromotion) {
+        promotionEl.classList.add('hide')
+        // 요소가 보여야 하면,
+    } else {
+        promotionEl.classList.remove('hide')
+    }
+})
