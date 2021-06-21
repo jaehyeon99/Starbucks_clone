@@ -80,3 +80,22 @@ promotionToggleBtn.addEventListener('click', function () {
         promotionEl.classList.remove('hide')
     }
 })
+
+function floatingObject(selector) {
+    gsap.to(selector, 1, {
+        y: 20,
+        repeat: -1,
+        yoyo: true
+    });
+}
+floatingObject('.floating');
+
+// 스크롤 내릴 때 애니메이션 LIKE APPLE SITE
+const spyEls = document.querySelectorAll('section.scroll-spy');
+spyEls.forEach(function (spyEl) {
+    new ScrollMagic.Scene({
+        triggerElement: spyEl,
+        triggerHook: 0.8
+    }).setClassToggle(spyEl, 'show')
+        .addTo(new ScrollMagic.Controller());
+});
