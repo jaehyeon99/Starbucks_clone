@@ -62,6 +62,18 @@ new Swiper('.promotion .swiper-container', {
         nextEl: ".promotion .swiper-next"
     }
 });
+new Swiper('.awards .swiper-container', {
+    direction: 'horizontal',
+    autoplay: true,
+    loop: true,
+    spaceBetween: 30,
+    slidesPerView: 5,
+    navigation: {
+        prevEl: '.awards .swiper-prev',
+        nextEl: '.awrads .swiper-next'
+    }
+});
+
 
 const promotionEl = document.querySelector('.promotion')
 // 슬라이드 영역를 토글하는 버튼 검색!
